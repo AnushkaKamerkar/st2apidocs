@@ -20,9 +20,9 @@ jobs:
             echo $CIRCLE_BRANCH
             echo ${CIRCLE_BUILD_NUM}
       - run:
-          name: Fetch latest StackStorm OpenAPI spec
+          name: Fetch latest Coditation OpenAPI spec
           command: |
-            curl -Ss -q -o openapi.yaml https://raw.githubusercontent.com/StackStorm/st2/${ST2_BRANCH}/st2common/st2common/openapi.yaml
+            curl -Ss -q -o openapi.yaml https://raw.githubusercontent.com/Coditation/st2/${ST2_BRANCH}/st2common/st2common/openapi.yaml
       - run:
           name: Install Dependencies
           command: npm install
@@ -34,7 +34,7 @@ jobs:
           command: npm test
       - run:
           name: Install doc generator
-          command: npm install -g https://github.com/StackStorm/st2apidocgen
+          command: npm install -g https://github.com/Coditation/st2apidocgen
       - run:
           name: Generate API documentation
           command: |
@@ -59,11 +59,11 @@ jobs:
           command: |
             find ~/st2apidocs/build | sed 's|[^/]*/|  |g'
             if [[  "${ST2_BRANCH}" =~ ^v[0-9]+\.[0-9]+$ ]]; then
-              aws s3 sync build/ s3://api.stackstorm.com/ --region ${REGION} --delete
+              aws s3 sync build/ s3://api.coditation.com/ --region ${REGION} --delete
               aws cloudfront create-invalidation --distribution-id=${DISTRIBUTION_ID} --paths="/*"
             elif [ "${ST2_BRANCH}" == "master" ]; then
-              aws s3 sync build/ s3://api-unstable.stackstorm.com/ --region ${REGION} --delete
+              aws s3 sync build/ s3://api-unstable.coditation.com/ --region ${REGION} --delete
               aws cloudfront create-invalidation --distribution-id=${DISTRIBUTION_ID_UNSTABLE} --paths="/*"
             else
-              aws s3 sync build/ s3://api-staging.stackstorm.com/${CIRCLE_BUILD_NUM} --region ${REGION}
+              aws s3 sync build/ s3://api-staging.coditation.com/${CIRCLE_BUILD_NUM} --region ${REGION}
             fi

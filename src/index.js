@@ -8,7 +8,7 @@ import {
   Route,
   Link,
 } from 'react-router-dom';
-import { StickyContainer, Sticky } from '@stackstorm/react-sticky';
+import { StickyContainer, Sticky } from '@coditation/react-sticky';
 import yaml from 'js-yaml';
 import $RefParser from 'json-schema-ref-parser';
 

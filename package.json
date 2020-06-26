@@ -1,7 +1,7 @@
 {
   "name": "st2apidocs",
   "version": "1.1.0",
-  "description": "Auto-generated StackStorm documentation",
+  "description": "Auto-generated Coditation documentation",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\"",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/StackStorm/st2apidocs.git"
+    "url": "git+https://github.com/Coditation/st2apidocs.git"
   },
   "author": "Extreme Networks",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/StackStorm/st2apidocs/issues"
+    "url": "https://github.com/Coditation/st2apidocs/issues"
   },
-  "homepage": "https://api.stackstorm.com/",
+  "homepage": "https://api.Coditation.com/",
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "babel-eslint": "10.0.2",
@@ -26,7 +26,7 @@
     "eslint-plugin-react": "^7.14.2"
   },
   "dependencies": {
-    "@stackstorm/react-sticky": "5.0.5",
+    "@coditation/react-sticky": "5.0.5",
     "commonmark": "0.27.0",
     "commonmark-react-renderer": "4.3.4",
     "http-server": "^0.11.1",
